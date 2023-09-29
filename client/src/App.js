@@ -22,7 +22,7 @@ function App() {
     const [reviews, setReviews] = useState([]);
     const getMovies = async () => {
         try {
-            const response = await api.get("/api/v1/movies"); //Asynchronousjhg
+            const response = await api.get("/api/v1/movies"); //Asynchronous
             console.log(response.data) ;
             setMovies(response.data);
         } catch (err) {
