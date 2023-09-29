@@ -1,0 +1,18 @@
+mongodb username and password
+stanydesa MUi6HDmXlfB4x81j
+mongodb+srv://stanydesa:MUi6HDmXlfB4x81j@cluster0.pdo2idt.mongodb.net/
+
+mongodb compass is GUI to connect to DB
+mongodb>collection>documents
+
+first step in spring boot project is spring initilzr
+
+lombok is java annotation library which helps us in boiler plate code
+
+http://localhost:8080/api/v1/movies
+http://localhost:8080/api/v1/movies/tt3915174
+http://localhost:8080/api/v1/reviews
+{
+  "reviewBody":"I really enjoy the movie",
+  "imdbId": "tt3915174"
+}

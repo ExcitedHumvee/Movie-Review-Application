@@ -1,0 +1,6 @@
+download nodejs
+npm start
+axios to faciliate get and post requests    
+npm install axios
+
+npm i react-router-dom
