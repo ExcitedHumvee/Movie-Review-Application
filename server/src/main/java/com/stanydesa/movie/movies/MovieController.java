@@ -26,4 +26,8 @@ public class MovieController {
         System.out.println("MovieController service.findMovieByImdbId(imdbId)");
         return new ResponseEntity<Optional<Movie>>(service.findMovieByImdbId(imdbId), HttpStatus.OK);
     }
+
+    public void setService(MovieService service) {
+        this.service = service;
+    }
 }
