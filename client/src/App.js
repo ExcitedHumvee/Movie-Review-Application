@@ -54,13 +54,15 @@ function App() {
             <Header/>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                <Route path="/" element={<Home movies={movies}/>} ></Route>
-                <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
-                <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
-                <Route path="*" element = {<NotFound/>}></Route>
+                    {/* element={<Home movies={movies}/>} : Passes the movies state as a prop to the Home component. */}
+                    <Route path="/" element={<Home movies={movies}/>} ></Route>
+                    <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
+                    <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
+                    <Route path="*" element = {<NotFound/>}></Route>
                 </Route>
             </Routes>
         </div>
     );
 }
 export default App;
+//this React application fetches a list of movies when the component mounts, allows navigation between different views using React Router, and fetches additional data for specific movies as needed. The structure is modular, with separate components for the header, home, trailer, reviews, and a not-found page.
