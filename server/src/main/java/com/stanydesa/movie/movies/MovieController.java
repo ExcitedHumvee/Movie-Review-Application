@@ -17,11 +17,13 @@ public class MovieController {
 
     @GetMapping
     public ResponseEntity<List<Movie>> getMovies() {
+        System.out.println("MovieController service.findAllMovies()");
         return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
     }
 
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){
+        System.out.println("MovieController service.findMovieByImdbId(imdbId)");
         return new ResponseEntity<Optional<Movie>>(service.findMovieByImdbId(imdbId), HttpStatus.OK);
     }
 }

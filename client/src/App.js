@@ -1,14 +1,17 @@
 import './App.css';
 import api from './api/axiosConfig';
+// Importing React hooks for state and lifecycle management
 import {
     useState,
     useEffect
 } from 'react';
 import Layout from './components/Layout';
+// Importing React Router components for defining routes
 import {
     Routes,
     Route
 } from 'react-router-dom';
+//importing components
 import Home from './components/home/Home';
 import Header from './components/header/Header';
 import Trailer from './components/trailer/Trailer';
@@ -17,14 +20,16 @@ import NotFound from './components/notFound/NotFound';
 
 function App() {
     console.log(process.env.REACT_APP_AXIOS_BASE_TOKEN);
+    //current state and function to change state
     const [movies, setMovies] = useState();
     const [movie, setMovie] = useState();
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState([]);//[] The empty dependency array ([]) ensures that the effect runs only once. If you have dependencies, the effect will re-run whenever those dependencies change.useEffect hook is used to fetch data when the component mounts. 
+
     const getMovies = async () => {
         try {
-            const response = await api.get("/api/v1/movies"); //Asynchronouss
+            const response = await api.get("/api/v1/movies"); //Asynchronous
             console.log(response.data) ;
-            setMovies(response.data);
+            setMovies(response.data);//chnaging the state
         } catch (err) {
             console.log(err);
         }
@@ -41,19 +46,20 @@ function App() {
         }
     }
 
-    useEffect(() => {getMovies();}, [])
+    // useEffect hook to fetch movies when the component mounts/rendered
+    useEffect(() => {getMovies();}, [])//calling getMovies()
 
-    return (
+    return (//main JSX JS XML 
         <div className="App">
-          <Header/>
-          <Routes>
-              <Route path="/" element={<Layout/>}>
+            <Header/>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
                 <Route path="/" element={<Home movies={movies}/>} ></Route>
                 <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
                 <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
                 <Route path="*" element = {<NotFound/>}></Route>
-              </Route>
-          </Routes>
+                </Route>
+            </Routes>
         </div>
     );
 }
